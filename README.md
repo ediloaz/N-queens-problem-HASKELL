@@ -1,91 +1,65 @@
-# BST Dynamic vs BST Greedy
+# N-queens problem solved in Haskell
 
-This program was created as part of an evaluation of a bachelor course in engineering. Resolves and find the optimal BST (Binary Search Tree) using two algorithms:
-* Dynamic Algorithm ([about this](https://en.wikipedia.org/wiki/Dynamic_algorithm))
-* Greedy Algorithm ([about this](https://en.wikipedia.org/wiki/Greedy_algorithm))
+This program was created as part of an evaluation of a bachelor course in engineering. Resolves the N-queens problem that basicaly is is to place n queens on a n × n board such that no queen is attacking any other queen. So that no queen is attacked it is required that no queen be in the same row, neither in the same column, nor in the same diagonal.
 
-Both were programmed in C on Linux, the main purpose was not to find the tree, but to make a comparison between these two algorithms taking the time and the "correct solution" factors.
+For example, the following image solves a problem of 8 queens. Note that no queen is attacking others:
+
+![Example of 8-queens problem](https://github.com/ediloaz/n-queens-problem-HASKELL/blob/master/settings/example.png)
 
 ## Input
 
-Is on the Linux terminal, not has a interface, the user can use two different ways:
-* Example mode
-* Experiment mode
+The program only receive a parameter as input, the N. On windows you must open GHCI (consulting [prerequisites](https://github.com/ediloaz/n-queens-problem-HASKELL#prerequisites)) and on Linux you must open terminal and press *ghci*.
 
-### Example mode
-
-Generate and solve a single random case with the two algorithms. The execution of the program generates a latex document where it specifies the initial problem, the response with the greedy algorithm, the response with the dynamic programming algorithm (both with their respective tables) and the conclusions reached in that execution.
-
-The input must will be:
+When GHCI is running you need write the following commands:
 ```
-./program -X
+Prelude> :cd C:/codes/
+Prelude> :load "haskell.hs"
+Main> :run main
+N:
 ```
 
-![Screenshot of the terminal in Example mode](https://github.com/ediloaz/BST-Dynamic-vs-BST-Greedy/blob/master/settings/input-example.png)
+In this point the user must define the parameter N. In the terminal on Linux it looks like this:
 
-
-
-### Experiment mode
-
-Generates and solves N random cases, collects statistical data. The execution of the program generates a latex document where it specifies the amount of data that will be used, the time tables of both algorithms, as well as an additional one which shows the percentage of optimal responses produced by the Greedy algorithm.
-
-The input must will be:
-```
-./program -E=N
-```
-Where the "N" parameter is the number of **N\*10 random cases** that you want.
-
-
-![Screenshot of the terminal in Experiment mode](https://github.com/ediloaz/BST-Dynamic-vs-BST-Greedy/blob/master/settings/input-experiment.png)
+![Screenshot of an input](https://github.com/ediloaz/n-queens-problem-HASKELL/blob/master/settings/input.png)
 
 
 ## Output
 
-A .tex file (and others files required) will create and convert to pdf with *pdflatex command*  and will open with *evince command*. All these files are saved in **output** folder. And each mode create a different document structure.
+Is shown from the terminal (or from GHCI on windows), and an example of 4 queens it looks like this:
 
+![Screenshot of an output](https://github.com/ediloaz/n-queens-problem-HASKELL/blob/master/settings/output.png)
 
-### Example mode
+The approximate times of this program running (calculations and prints) on a conventional computer are close to those shown in the following table:
 
-![Screenshot of an example of Example mode](https://github.com/ediloaz/BST-Dynamic-vs-BST-Greedy/blob/master/settings/Example-1.jpg)
+| N | miliseconds | 
+| :---         |     :---:      | 
+| `N=5`   | 292     | 
+| `N=6`   | 356     | 
+| `N=7`   | 417     | 
+| `N=8`   | 819     | 
+| `N=9`   | 3481     | 
 
-![Screenshot of an example of Example mode](https://github.com/ediloaz/BST-Dynamic-vs-BST-Greedy/blob/master/settings/Example-2.jpg)
+In a smooth line chart:
 
-
-
-### Experiment mode
-
-![Screenshot of the Experiment mode](https://github.com/ediloaz/BST-Dynamic-vs-BST-Greedy/blob/master/settings/Experiment-1.jpg)
-
-
+![Screenshot of an output](https://github.com/ediloaz/n-queens-problem-HASKELL/blob/master/settings/graphic.png)
 
 
 ## Prerequisites
 
-It is necessary to have installed *latex* (including *pdflatex*), *pkg-config* and *evince* in your linux. You can install it with the following commands:
+### Steps to install haskell on Linux
+ 1. Install haskell from terminal with the command: 
+ ```
+sudo apt-get install haskell-platform
 ```
-sudo apt-get install texlive-full
-```
-```
-sudo apt-get install texmaker
-```
-```
-sudo apt-get install evince
-```
-```
-sudo apt install pkg-config
-```
+ 2. Install GHC (Glasgow Haskell Compiler) on [GHC for linux](https://www.haskell.org/ghc/)
+
+### Steps to install haskell on Windows
+ 1. Install GHC (Glasgow Haskell Compiler) on [GHC for windows](https://www.haskell.org/ghc/) 
+
 
 ## Running
 
-First is necessary compile the main file (*main.c*) with the command
-```
- gcc -o program main.c
-```
-
-and then it can be opened
-```
-./program
-```
+Is necessary Glasgow Haskell Compiler, is both an interpreter and native-code compiler that runs on most platforms. In [input](https://github.com/ediloaz/n-queens-problem-HASKELL#prerequisites) was showed how running.
 
 ## Built With
 
